@@ -121,7 +121,7 @@ class BaseAction(Action):
 
         # Check if query is in de connection
         if 'query' not in connection:
-            connection['query'] = ()
+            connection['query'] = {}
 
         # Format the connection string
         database_connection_string = URL(**connection)
