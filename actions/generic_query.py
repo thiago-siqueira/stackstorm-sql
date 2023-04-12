@@ -1,4 +1,5 @@
 from lib.base_action import BaseAction
+from sqlalchemy import text
 
 
 class SQLQueryAction(BaseAction):
@@ -21,7 +22,7 @@ class SQLQueryAction(BaseAction):
         return_result = None
         with self.db_connection(kwargs_dict) as conn:
             # Execute the query
-            query_result = conn.execute(query)
+            query_result = conn.execute(text(query))
 
             # We need to execute these commands while connection is still open.
             return_result = {'affected_rows': query_result.rowcount}
