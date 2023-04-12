@@ -1,1 +1,2 @@
+sqlalchemy
 pymssql<3.0
